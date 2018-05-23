@@ -154,7 +154,7 @@ public class Main extends JFrame implements ActionListener{
 			znak = '*';
 			tx.setText(licz1 + znak);
 		}
-		
+		//surprise
 		if(s == dzie){
 			znak = '/';
 			tx.setText(licz1 + znak);
