@@ -1,0 +1,226 @@
+package githubcalc;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class Main extends JFrame implements ActionListener{
+	
+	private JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, opp, opm, mno, dzie, equo;
+	private JTextField tx;
+	private String licz1 = "";
+	private String licz2 = "";
+	private char znak = ' ';
+	
+	public Main(){
+		
+		setTitle("Calculator");
+		setSize(490, 420);
+		setLocation(600, 300);
+		
+		setLayout(null);
+		
+		tx = new JTextField();
+		tx.setBounds(10, 10, 445, 40);
+		add(tx);
+		
+		b1 = new JButton("1");
+		b1.setBounds(10, 80, 145, 40);
+		b1.addActionListener(this);
+		add(b1);
+		
+		b2 = new JButton("2");
+		b2.setBounds(160, 80, 145, 40);
+		b2.addActionListener(this);
+		add(b2);
+		
+		b3 = new JButton("3");
+		b3.setBounds(310, 80, 145, 40);
+		b3.addActionListener(this);
+		add(b3);
+		
+		b4 = new JButton("4");
+		b4.setBounds(10, 140, 145, 40);
+		b4.addActionListener(this);
+		add(b4);
+		
+		b5 = new JButton("5");
+		b5.setBounds(160, 140, 145, 40);
+		b5.addActionListener(this);
+		add(b5);
+		
+		b6 = new JButton("6");
+		b6.setBounds(310, 140, 145, 40);
+		b6.addActionListener(this);
+		add(b6);
+		
+		b7 = new JButton("7");
+		b7.setBounds(10, 200, 145, 40);
+		b7.addActionListener(this);
+		add(b7);
+		
+		b8 = new JButton("8");
+		b8.setBounds(160, 200, 145, 40);
+		b8.addActionListener(this);
+		add(b8);
+		
+		b9 = new JButton("9");
+		b9.setBounds(310, 200, 145, 40);
+		b9.addActionListener(this);
+		add(b9);
+		
+		b10 = new JButton("0");
+		b10.setBounds(160, 260, 145, 40);
+		b10.addActionListener(this);
+		add(b10);
+		
+		opp = new JButton("+");
+		opp.setBounds(10, 260, 145, 40);
+		opp.addActionListener(this);
+		add(opp);
+		
+		opm = new JButton("-");
+		opm.setBounds(310, 260, 145, 40);
+		opm.addActionListener(this);
+		add(opm);
+		
+		mno = new JButton("*");
+		mno.setBounds(10, 320, 145, 40);
+		mno.addActionListener(this);
+		add(mno);
+		
+		dzie = new JButton("/");
+		dzie.setBounds(310, 320, 145, 40);
+		dzie.addActionListener(this);
+		add(dzie);
+		
+		equo = new JButton("=");
+		equo.setBounds(160, 320, 145, 40);
+		equo.addActionListener(this);
+		add(equo);
+		
+	}
+	
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		Object s = e.getSource();
+		
+		if(s == b1)			
+			cal("1");
+		
+		if(s == b2)			
+			cal("2");
+		
+		if(s == b3)		
+			cal("3");
+		
+		if(s == b4)	
+			cal("4");
+		
+		if(s == b5)
+			cal("5");
+		
+		if(s == b6)			
+			cal("6");
+		
+		if(s == b7)	
+			cal("7");
+		
+		if(s == b8)
+			cal("8");
+		
+		if(s == b9)	
+			cal("9");
+		
+		if(s == b10)
+			cal("0");
+		
+		if(s == opp){		
+			znak = '+';
+			tx.setText(licz1 + znak);
+		}
+		
+		if(s == opm){
+			znak = '-';
+			tx.setText(licz1 + znak);
+		}
+		
+		if(s == mno){
+			znak = '*';
+			tx.setText(licz1 + znak);
+		}
+		
+		if(s == dzie){
+			znak = '/';
+			tx.setText(licz1 + znak);
+		}
+		
+		if(s == equo){
+			
+			int a = Integer.parseInt(licz1);
+			int b = Integer.parseInt(licz2);
+			
+			switch(znak){
+			
+			case '+' :{
+				
+				int wynik = a+b;
+				String wyn2 = String.valueOf(wynik);
+				tx.setText(wyn2);
+				break;
+			}
+			case '-' :{
+				
+				int wynik = a-b;
+				String wyn2 = String.valueOf(wynik);
+				tx.setText(wyn2);
+				break;
+			}
+			case '*' :{
+				
+				int wynik = a*b;
+				String wyn2 = String.valueOf(wynik);
+				tx.setText(wyn2);
+				break;
+			}
+			case '/' :{
+	
+				int wynik = a/b;
+				String wyn2 = String.valueOf(wynik);
+				tx.setText(wyn2);
+				break;
+			}
+		  }
+		}
+		
+	}
+	
+	public void cal(String licz){
+		
+		if(znak == ' '){
+			licz1 += licz;
+			tx.setText(licz1);
+		}
+		else{
+			tx.setText(licz1+znak);
+			licz2 += licz;
+			tx.setText(licz1 + znak + licz2);
+		}
+		
+		
+	}
+
+	public static void main(String[] args) {
+		
+		Main m = new Main();
+		m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		m.setVisible(true);
+
+	}
+
+}
