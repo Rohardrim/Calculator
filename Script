@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-public class Main extends JFrame implements ActionListener{
+public class Main extends JFrame implements ActionListener{ ---------dziedziczy po kobyle----------------
 	
 	private JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, opp, opm, mno, dzie, equo;
 	private JTextField tx;
