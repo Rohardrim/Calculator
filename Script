@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-public class Main extends JFrame implements ActionListener{ ---------dziedziczy po kobyle----------------
+public class Main extends JFrame implements ActionListener{
 	
 	private JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, opp, opm, mno, dzie, equo;
 	private JTextField tx;
@@ -104,6 +104,7 @@ public class Main extends JFrame implements ActionListener{ ---------dziedziczy 
 		
 	}
 	
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -154,7 +155,7 @@ public class Main extends JFrame implements ActionListener{ ---------dziedziczy 
 			znak = '*';
 			tx.setText(licz1 + znak);
 		}
-		//surprise
+		
 		if(s == dzie){
 			znak = '/';
 			tx.setText(licz1 + znak);
@@ -202,17 +203,15 @@ public class Main extends JFrame implements ActionListener{ ---------dziedziczy 
 	
 	public void cal(String licz){
 		
+		
 		if(znak == ' '){
 			licz1 += licz;
 			tx.setText(licz1);
 		}
 		else{
-			tx.setText(licz1+znak);
 			licz2 += licz;
 			tx.setText(licz1 + znak + licz2);
 		}
-		
-		
 	}
 
 	public static void main(String[] args) {
